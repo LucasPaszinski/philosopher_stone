@@ -7,6 +7,11 @@ defmodule PhilosopherStoneWeb.Router do
 
   scope "/api", PhilosopherStoneWeb do
     pipe_through :api
+
+    post "/user", UserController, :create
+    post "/deposit/:id", AccountController, :deposit
+    post "/withdraw/:id", AccountController, :withdraw
+    post "/transfer", AccountController, :transfer
   end
 
   # Enables LiveDashboard only for development

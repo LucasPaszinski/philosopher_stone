@@ -11,6 +11,8 @@ config :philosopher_stone,
   ecto_repos: [PhilosopherStone.Repo],
   generators: [binary_id: true]
 
+config :philosopher_stone, PhilosopherStone.Repo, migration_primary_key: [type: :binary_id]
+
 # Configures the endpoint
 config :philosopher_stone, PhilosopherStoneWeb.Endpoint,
   url: [host: "localhost"],

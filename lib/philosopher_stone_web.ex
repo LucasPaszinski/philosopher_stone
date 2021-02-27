@@ -23,6 +23,7 @@ defmodule PhilosopherStoneWeb do
 
       import Plug.Conn
       import PhilosopherStoneWeb.Gettext
+      import PhilosopherStone
       alias PhilosopherStoneWeb.Router.Helpers, as: Routes
     end
   end
