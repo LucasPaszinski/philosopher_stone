@@ -3,15 +3,18 @@ defmodule PhilosopherStoneWeb.AccountView do
 
   alias PhilosopherStone.User.Account
 
-  def render("account.json", %{
+  def render("transfer.json", %{
         from_account: %Account{} = from_account,
         to_account: %Account{} = to_account
       }) do
     %{
+      message: "Money transfer with success.",
       from_account: %{
+        id: from_account.id,
         balance: from_account.balance
       },
       to_account: %{
+        id: to_account.id,
         balance: to_account.balance
       }
     }
@@ -19,7 +22,11 @@ defmodule PhilosopherStoneWeb.AccountView do
 
   def render("account.json", %{account: %Account{} = account}) do
     %{
-      balance: account.balance
+      message: "Account balance updated.",
+      account: %{
+        id: account.id,
+        balance: account.balance
+      }
     }
   end
 end

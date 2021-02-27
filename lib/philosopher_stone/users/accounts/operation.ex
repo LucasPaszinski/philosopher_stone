@@ -1,7 +1,6 @@
 defmodule PhilosopherStone.User.Account.Operation do
   alias Ecto.Multi
   alias PhilosopherStone.User.Account
-  alias PhilosopherStone.Repo
 
   def operation(operation, account_id, value) do
     operation_account = make_operation_atom(operation, "account")

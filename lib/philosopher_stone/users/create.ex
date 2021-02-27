@@ -22,7 +22,7 @@ defmodule PhilosopherStone.User.Create do
     |> User.changeset(attrs)
   end
 
-  defp create_account_changeset_for_user(repo, %{user: %{id: user_id}} = attrs) do
+  defp create_account_changeset_for_user(repo, %{user: %{id: user_id}}) do
     %{balance: 0, user_id: user_id}
     |> create_account_changeset()
     |> repo.insert()

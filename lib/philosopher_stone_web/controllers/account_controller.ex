@@ -32,7 +32,7 @@ defmodule PhilosopherStoneWeb.AccountController do
            transfer_value(from_account_id, to_account_id, value) do
       conn
       |> put_status(:created)
-      |> render("account.json", %{from_account: from_account, to_account: to_account})
+      |> render("transfer.json", %{from_account: from_account, to_account: to_account})
     else
       {:error, _, changeset, _} -> {:error, changeset}
     end
