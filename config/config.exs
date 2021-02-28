@@ -13,6 +13,10 @@ config :philosopher_stone,
 
 config :philosopher_stone, PhilosopherStone.Repo, migration_primary_key: [type: :binary_id]
 
+config :philosopher_stone, :basic_auth,
+  username: System.get_env("BASIC_AUTH_USERNAME"),
+  password: System.get_env("BASIC_AUTH_PASSWORD")
+
 # Configures the endpoint
 config :philosopher_stone, PhilosopherStoneWeb.Endpoint,
   url: [host: "localhost"],

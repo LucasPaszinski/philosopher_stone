@@ -1,14 +1,24 @@
 defmodule PhilosopherStoneWeb.Router do
   use PhilosopherStoneWeb, :router
+  import Plug.BasicAuth
 
   pipeline :api do
     plug :accepts, ["json"]
+  end
+
+  pipeline :auth do
+    plug :basic_auth, Application.compile_env!(:philosopher_stone, :basic_auth)
   end
 
   scope "/api", PhilosopherStoneWeb do
     pipe_through :api
 
     post "/user", UserController, :create
+  end
+
+  scope "/api", PhilosopherStoneWeb do
+    pipe_through [:api, :auth]
+
     post "/deposit/:id", AccountController, :deposit
     post "/withdraw/:id", AccountController, :withdraw
     post "/transfer", AccountController, :transfer
